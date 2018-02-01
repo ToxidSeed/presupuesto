@@ -1,0 +1,51 @@
+Ext.define('MyApp.Transaccion.GridTransacciones',{
+    extend:'Per.GridPanel',
+    constructor:function(){       
+
+       Ext.apply(this,{
+            url:'http://localhost/hola',
+            //region:'south',
+            width:750,
+            height:450,
+            columns:[             
+                {
+                    xtype:'rownumberer'
+                },
+                {
+                    text:'Fecha Transaccion',
+                    dataIndex:'FechaTransaccion'
+                },
+                {
+                    text:'Transaccion',
+                    dataIndex:'Transaccion'
+                },{
+                    text:'MON',
+                    dataIndex:'MonedaCuenta',
+                    width:50 
+                },
+                {
+                    text:'Cuenta',
+                    dataIndex:'Cuenta',
+                    flex:1                    
+                },{
+                    text:'MON',
+                    dataIndex:'MonedaImporte',
+                    width:50 
+                },
+                {
+                    text:'Importe',
+                    dataIndex:'Importe'
+                },{
+                    text:'TC',
+                    dataIndex:'TipoCambio'
+                }
+            ]            
+        }); 
+
+        var args = {
+            url:this.url,
+            columns:this.columns
+        }
+        this.callParent([args]);
+    }
+})
